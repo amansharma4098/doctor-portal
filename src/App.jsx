@@ -1,10 +1,9 @@
 import React from "react";
 import { Routes, Route, Navigate, Link } from "react-router-dom";
-import Login from "./pages/Login.jsx";
-import Signup from "./pages/Signup.jsx";
-import Dashboard from "./pages/Dashboard.jsx";
-import Patients from "./pages/Patients.jsx";
-
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
+import Patients from "./pages/Patients";
 
 function PrivateRoute({ children }) {
   const token = localStorage.getItem("doctorToken");
