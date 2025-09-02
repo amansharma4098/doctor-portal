@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import API_BASE_URL from "../config";
 
@@ -42,6 +43,15 @@ function Dashboard() {
           </tbody>
         </table>
       )}
+=======
+import React from "react";
+
+function Dashboard() {
+  return (
+    <div style={{ padding: "20px" }}>
+      <h2>Doctor Dashboard</h2>
+      <p>Here you’ll see your appointments, patient list, and treatment history.</p>
+>>>>>>> dd2856b5340a04191d8992d0ff498edeea9e6a18
     </div>
   );
 }

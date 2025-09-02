@@ -6,6 +6,7 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     if (email === "doctor@raksha360.com" && password === "12345") {
       window.location.href = "/dashboard";
     } else {
@@ -27,16 +28,42 @@ function Login() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+=======
+    alert(`Doctor login attempted for ${email}`);
+    // Later: Connect to backend API
+  };
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <h2>Doctor Login</h2>
+      <form onSubmit={handleLogin}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          style={{ display: "block", margin: "10px 0", padding: "8px" }}
+>>>>>>> dd2856b5340a04191d8992d0ff498edeea9e6a18
         />
         <input
           type="password"
           placeholder="Password"
+<<<<<<< HEAD
           className="w-full border p-3 rounded mb-4"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
         <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+=======
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          style={{ display: "block", margin: "10px 0", padding: "8px" }}
+        />
+        <button type="submit" style={{ padding: "10px 20px", background: "#0077b6", color: "white" }}>
+>>>>>>> dd2856b5340a04191d8992d0ff498edeea9e6a18
           Login
         </button>
       </form>
