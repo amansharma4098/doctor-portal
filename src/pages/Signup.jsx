@@ -1,55 +1,22 @@
-import React, { useState } from "react";
-import API_BASE_URL from "../config";
-
-function Signup() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    password: "",
-    specialization: "",
-    degree: "",
-    city: "",
-    contact: "",
-  });
-
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-
-  const handleSignup = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch(`${API_BASE_URL}/auth/doctor/signup?` + new URLSearchParams(form), {
-        method: "POST",
-      });
-      const data = await res.json();
-      alert(data.msg || "Doctor registered!");
-      window.location.href = "/login";
-    } catch (err) {
-      console.error(err);
+const handleSignup = async (e) => {
+  e.preventDefault();
+  setMessage("");
+  try {
+    const res = await fetch(
+      `${API_BASE_URL}/auth/doctor/signup?` + new URLSearchParams(form),
+      { method: "POST" }
+    );
+    const data = await res.json();
+    if (res.ok) {
+      setMessage("✅ Signup successful! Redirecting to login...");
+      setTimeout(() => {
+        window.location.href = "/login";
+      }, 1500);
+    } else {
+      setMessage(`❌ Error: ${data.detail || "Signup failed"}`);
     }
-  };
-
-  return (
-    <div className="flex justify-center items-center h-[80vh] bg-gray-100">
-      <form onSubmit={handleSignup} className="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h2 className="text-2xl font-bold text-center mb-6 text-blue-600">Doctor Signup</h2>
-        {Object.keys(form).map((field) => (
-          <input
-            key={field}
-            type={field === "password" ? "password" : "text"}
-            name={field}
-            placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-            value={form[field]}
-            onChange={handleChange}
-            className="w-full border p-3 rounded mb-3"
-            required
-          />
-        ))}
-        <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
-          Signup
-        </button>
-      </form>
-    </div>
-  );
-}
-
-export default Signup;
+  } catch (err) {
+    setMessage("❌ Something went wrong. Please try again.");
+    console.error(err);
+  }
+};
