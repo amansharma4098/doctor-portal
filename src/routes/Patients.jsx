@@ -23,16 +23,9 @@ function Patients() {
     <div className="p-6 bg-gray-100 min-h-screen">
       <h2 className="text-3xl font-bold mb-6 text-blue-700">Patient Details</h2>
       <form onSubmit={fetchPatient} className="flex gap-3 mb-6">
-        <input
-          type="text"
-          placeholder="Enter Patient ID"
-          className="flex-1 border p-3 rounded"
-          value={patientId}
-          onChange={(e) => setPatientId(e.target.value)}
-        />
-        <button className="bg-blue-600 text-white px-6 rounded hover:bg-blue-700">
-          Search
-        </button>
+        <input type="text" placeholder="Enter Patient ID" className="flex-1 border p-3 rounded"
+          value={patientId} onChange={(e) => setPatientId(e.target.value)} />
+        <button className="bg-blue-600 text-white px-6 rounded hover:bg-blue-700">Search</button>
       </form>
       {patient && (
         <div className="bg-white p-6 rounded shadow-md">

@@ -8,7 +8,7 @@ function Dashboard() {
   useEffect(() => {
     async function fetchAppointments() {
       try {
-        const res = await fetch(`${API_BASE_URL}/appointments?doctor_id=1`, {
+        const res = await fetch(`${API_BASE_URL}/appointments`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
