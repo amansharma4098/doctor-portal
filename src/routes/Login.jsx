@@ -16,6 +16,8 @@ function Login() {
       const data = await res.json();
       if (data.token) {
         localStorage.setItem("doctorToken", data.token);
+        localStorage.setItem("doctorName", data.name);
+        localStorage.setItem("doctorId", data.doctor_id);
         window.location.href = "/dashboard";
       } else {
         alert("❌ Invalid credentials");
