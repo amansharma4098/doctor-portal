@@ -28,14 +28,61 @@ function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center h-[80vh] bg-gray-100">
-      <form onSubmit={handleLogin} className="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h2 className="text-2xl font-bold text-center mb-6 text-blue-600">Doctor Login</h2>
-        <input type="email" placeholder="Email" className="w-full border p-3 rounded mb-3"
-          value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <input type="password" placeholder="Password" className="w-full border p-3 rounded mb-3"
-          value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Login</button>
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-100 p-6">
+
+      {/* Left Section: Image + Company Name + Welcome */}
+      <div className="md:w-1/2 bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center mb-8 md:mb-0">
+        <h1 className="text-4xl font-extrabold text-blue-700 mb-6 select-none">Raksha360</h1>
+        <img
+          src="https://images.unsplash.com/photo-1588776814546-0e899bb42b54?auto=format&fit=crop&w=600&q=80"
+          alt="Doctor and patient"
+          className="rounded-xl mb-6 w-full max-w-md object-cover shadow-md"
+        />
+        <h2 className="text-3xl font-bold mb-2 text-blue-700">Welcome Doctor!</h2>
+        <p className="text-gray-600 max-w-sm">
+          Login securely to manage your appointments and patients efficiently.
+        </p>
+      </div>
+
+      {/* Right Section: Login Form */}
+      <form
+        onSubmit={handleLogin}
+        className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md"
+      >
+        <h2 className="text-2xl mb-6 font-bold text-gray-800 text-center">Doctor Login</h2>
+
+        <label htmlFor="email" className="block text-gray-700 mb-1 font-medium">
+          Email
+        </label>
+        <input
+          id="email"
+          type="email"
+          placeholder="Enter your email"
+          className="border border-gray-300 p-3 w-full rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <label htmlFor="password" className="block text-gray-700 mb-1 font-medium">
+          Password
+        </label>
+        <input
+          id="password"
+          type="password"
+          placeholder="Enter your password"
+          className="border border-gray-300 p-3 w-full rounded mb-6 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        <button
+          type="submit"
+          className="bg-blue-600 text-white py-3 w-full rounded hover:bg-blue-700 transition"
+        >
+          Login
+        </button>
       </form>
     </div>
   );
