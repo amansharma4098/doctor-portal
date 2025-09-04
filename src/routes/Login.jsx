@@ -28,13 +28,13 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-100 p-6">
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-100 p-6 gap-8">
 
       {/* Left Section: Image + Company Name + Welcome */}
       <div className="md:w-1/2 bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center mb-8 md:mb-0">
         <h1 className="text-4xl font-extrabold text-blue-700 mb-6 select-none">Raksha360</h1>
         <img
-          src="https://images.unsplash.com/photo-1588776814546-0e899bb42b54?auto=format&fit=crop&w=600&q=80"
+          src="https://source.unsplash.com/600x400/?doctor,clinic"
           alt="Doctor and patient"
           className="rounded-xl mb-6 w-full max-w-md object-cover shadow-md"
         />
