@@ -34,7 +34,7 @@ function Login() {
       <div className="md:w-1/2 bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center mb-8 md:mb-0">
         <h1 className="text-4xl font-extrabold text-blue-700 mb-6 select-none">Raksha360</h1>
         <img
-          src="https://source.unsplash.com/600x400/?doctor,clinic"
+          src="https://via.placeholder.com/600x400.png?text=Doctor+Clinic"
           alt="Doctor and patient"
           className="rounded-xl mb-6 w-full max-w-md object-cover shadow-md"
         />
@@ -76,16 +76,3 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-
-        <button
-          type="submit"
-          className="bg-blue-600 text-white py-3 w-full rounded hover:bg-blue-700 transition"
-        >
-          Login
-        </button>
-      </form>
-    </div>
-  );
-}
-
-export default Login;
