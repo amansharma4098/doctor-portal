@@ -13,7 +13,8 @@ function Signup() {
   });
   const [message, setMessage] = useState("");
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -41,85 +42,95 @@ function Signup() {
   };
 
   return (
-    <div className="flex justify-center items-center h-[90vh] bg-gray-100">
-      <form
-        onSubmit={handleSignup}
-        className="bg-white p-8 rounded-lg shadow-lg w-96"
-      >
-        <h2 className="text-2xl font-bold text-center mb-6 text-blue-600">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-white p-4">
+      <div className="w-full max-w-lg bg-white p-8 rounded-xl shadow-lg border">
+        <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">
           Doctor Signup
         </h2>
+        <form onSubmit={handleSignup}>
+          <div className="grid grid-cols-1 gap-4">
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              value={form.name}
+              onChange={handleChange}
+              className="border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-300"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={form.email}
+              onChange={handleChange}
+              className="border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-300"
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={form.password}
+              onChange={handleChange}
+              className="border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-300"
+              required
+            />
+            <input
+              type="text"
+              name="specialization"
+              placeholder="Specialization (e.g., Cardiologist)"
+              value={form.specialization}
+              onChange={handleChange}
+              className="border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-300"
+              required
+            />
+            <input
+              type="text"
+              name="degree"
+              placeholder="Degree"
+              value={form.degree}
+              onChange={handleChange}
+              className="border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-300"
+              required
+            />
+            <input
+              type="text"
+              name="city"
+              placeholder="City"
+              value={form.city}
+              onChange={handleChange}
+              className="border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-300"
+              required
+            />
+            <input
+              type="text"
+              name="contact"
+              placeholder="Contact No."
+              value={form.contact}
+              onChange={handleChange}
+              className="border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-300"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition duration-200"
+          >
+            Signup
+          </button>
+        </form>
 
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          value={form.name}
-          onChange={handleChange}
-          className="w-full border p-3 rounded mb-3"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          className="w-full border p-3 rounded mb-3"
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-          className="w-full border p-3 rounded mb-3"
-          required
-        />
-        <input
-          type="text"
-          name="specialization"
-          placeholder="Specialization (e.g. Cardiologist)"
-          value={form.specialization}
-          onChange={handleChange}
-          className="w-full border p-3 rounded mb-3"
-          required
-        />
-        <input
-          type="text"
-          name="degree"
-          placeholder="Degree"
-          value={form.degree}
-          onChange={handleChange}
-          className="w-full border p-3 rounded mb-3"
-          required
-        />
-        <input
-          type="text"
-          name="city"
-          placeholder="City"
-          value={form.city}
-          onChange={handleChange}
-          className="w-full border p-3 rounded mb-3"
-          required
-        />
-        <input
-          type="text"
-          name="contact"
-          placeholder="Contact No."
-          value={form.contact}
-          onChange={handleChange}
-          className="w-full border p-3 rounded mb-3"
-          required
-        />
-
-        <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
-          Signup
-        </button>
-
-        {message && <p className="mt-3 text-center text-sm">{message}</p>}
-      </form>
+        {message && (
+          <p
+            className={`mt-4 text-center font-medium ${
+              message.startsWith("✅") ? "text-green-600" : "text-red-500"
+            }`}
+          >
+            {message}
+          </p>
+        )}
+      </div>
     </div>
   );
 }
